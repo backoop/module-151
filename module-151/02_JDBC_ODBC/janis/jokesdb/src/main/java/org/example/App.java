@@ -4,8 +4,8 @@ package org.example;
 import java.sql.*;
 
 /**
- * Hello world!
- *
+ * @Author: Janis Ringli
+ * @Date: 01.09.2022
  */
 public class App {
     public static void main(String[] args) {
@@ -20,9 +20,8 @@ public class App {
             Statement stmt = connection.createStatement();
             ResultSet entries = stmt.executeQuery("SELECT * FROM joke");
 // alle Datensätze aus dem ResultSet auslesen und // (Schritt 1) in einer ArrayList ablegen
-            while (entries.next()) {
-                System.out.println(entries.getString("text"));
-            }
+            JokeBook jokebook = new JokeBook(entries);
+            System.out.println(jokebook.print());
 // alle verwendeten Objekte schliessen
             entries.close();
             stmt.close();
