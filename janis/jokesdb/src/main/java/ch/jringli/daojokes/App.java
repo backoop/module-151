@@ -1,5 +1,7 @@
-package org.example;
+package ch.jringli.daojokes;
 
+
+import ch.jringli.daojokes.model.JokeBook;
 
 import java.sql.*;
 

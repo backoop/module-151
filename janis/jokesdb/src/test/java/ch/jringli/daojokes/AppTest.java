@@ -1,4 +1,4 @@
-package org.example;
+package ch.jringli.daojokes;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
