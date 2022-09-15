@@ -1,4 +1,4 @@
-package ch.fwesterath.dao;
+package ch.fwesterath.daojokes.model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

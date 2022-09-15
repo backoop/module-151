@@ -1,4 +1,6 @@
-package ch.fwesterath.dao;
+package ch.fwesterath.daojokes;
+
+import ch.fwesterath.daojokes.model.JokeBook;
 
 import java.sql.*;
 

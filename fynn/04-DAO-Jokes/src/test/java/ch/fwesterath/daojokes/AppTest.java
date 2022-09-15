@@ -1,4 +1,4 @@
-package ch.fwesterath.dao;
+package ch.fwesterath.daojokes;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
