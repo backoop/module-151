@@ -1,4 +1,4 @@
-package org.example;
+package ch.fwesterath.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
