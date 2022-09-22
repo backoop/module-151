@@ -1,14 +1,14 @@
 package ch.jringli.daojokes.model;
+import ch.jringli.daojokes.dao.DatabaseAccess;
+
 import java.sql.*;
 import java.util.ArrayList;
 
 
 public class JokeBook {
     ArrayList<Joke> jokes = new ArrayList<>();
-    public JokeBook(ResultSet jokelist) throws SQLException {
-        while (jokelist.next()) {
-            jokes.add(new Joke(jokelist.getInt("id"), jokelist.getDate("date"), jokelist.getInt("rating"), jokelist.getString("text")));
-        }
+    public JokeBook(DatabaseAccess dao) throws SQLException, ClassNotFoundException {
+       this.jokes = dao.getAllJokes();
     }
 
     public String print() {
