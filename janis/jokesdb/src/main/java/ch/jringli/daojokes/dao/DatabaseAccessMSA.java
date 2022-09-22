@@ -15,7 +15,7 @@ public class DatabaseAccessMSA implements DatabaseAccess {
         ResultSet entries = stmt.executeQuery("SELECT * FROM joke");// alle Datensätze aus dem ResultSet auslesen und// (Schritt 1) in einer ArrayList ablegen
         ArrayList<Joke> jokes = new ArrayList<>();
         while (entries.next()) {
-            Joke joke = JokeFillerSQL.createJokeObject(entries);
+            Joke joke = JokeFillerMSA.createJokeObject(entries);
             jokes.add(joke);
         }
         return jokes;

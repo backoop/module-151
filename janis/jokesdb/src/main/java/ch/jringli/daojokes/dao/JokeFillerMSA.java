@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class JokeFillerMSA {
     public static Joke createJokeObject(ResultSet entry) throws SQLException {
-        return new Joke(entry.getInt("id"), entry.getDate("date"), entry.getInt("rating"), entry.getString("text"));
+        return new Joke(entry.getInt("jokeid"), entry.getDate("date"), entry.getInt("rating"), entry.getString("content"));
 
     }
 }
