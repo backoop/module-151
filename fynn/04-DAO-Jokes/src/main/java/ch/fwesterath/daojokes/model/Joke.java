@@ -8,12 +8,12 @@ public class Joke {
     private int rating;
     private String text;
 
-    public Joke(int id, Date date, int rating, String text) {
-        this.id = id;
-        this.date = date;
-        this.rating = rating;
-        this.text = text;
-    }
+//    public Joke(int id, Date date, int rating, String text) {
+//        this.id = id;
+//        this.date = date;
+//        this.rating = rating;
+//        this.text = text;
+//    }
 
     public int getId() {
         return id;
@@ -55,5 +55,12 @@ public class Joke {
                 ", rating=" + rating +
                 ", text='" + text + '\'' +
                 '}';
+    }
+
+    public void setupJoke(int id, String text, java.sql.Date date, int rating) {
+        this.id = id;
+        this.text = text;
+        this.date = date;
+        this.rating = rating;
     }
 }

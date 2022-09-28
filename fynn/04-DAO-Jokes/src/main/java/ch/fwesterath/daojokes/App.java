@@ -1,5 +1,9 @@
 package ch.fwesterath.daojokes;
 
+import ch.fwesterath.daojokes.dao.DataBaseAccess;
+import ch.fwesterath.daojokes.dao.DataBaseAccessFactory;
+import ch.fwesterath.daojokes.dao.maccess.DataBaseAccesMAccess;
+import ch.fwesterath.daojokes.dao.sql.DataBaseAccesSQL;
 import ch.fwesterath.daojokes.model.JokeBook;
 
 import java.sql.*;
@@ -10,27 +14,18 @@ import java.sql.*;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        try {// Driver class für MySql-Datenbankladen
-            Class.forName("com.mysql.cj.jdbc.Driver");// Verbindung zur Datenbank herstellen// Setzen Sie den richtigen Port, auf dem ihre Datenbank läuft// zbsp 3306
-            String connectionUrl = "jdbc:mysql://localhost:3306/jokedb";//beachten Sie username und passwort
-            Connection connection = DriverManager.getConnection(connectionUrl, "root", "1234");// Sql Befehl aufbauen und ausführen
-            Statement stmt = connection.createStatement();
-            ResultSet entries = stmt.executeQuery("SELECT * FROM joke");// alle Datensätze aus dem ResultSet auslesen und// (Schritt 1) in einer ArrayList ablegen
+    public static void main( String[] args ) throws SQLException, ClassNotFoundException {
+        DataBaseAccessFactory factory = new DataBaseAccessFactory();
 
-            JokeBook jokebook = new JokeBook(entries);
-            jokebook.print();
-            // alle verwendeten Objekte schliessen
-            entries.close();
-            stmt.close();
-            connection.close();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (
-                SQLException e) {
-            e.printStackTrace();
-        }
+        System.out.println("=== SQL ===");
+        DataBaseAccess sqlDAO = factory.getDataBaseAccess("sql");
+        JokeBook jokeBook = new JokeBook(sqlDAO);
+        jokeBook.print();
+
+        System.out.println("=== MAccess ===");
+        DataBaseAccess mAccessDAO = factory.getDataBaseAccess("maccess");
+        JokeBook jokeBookMAccess = new JokeBook(mAccessDAO);
+        jokeBookMAccess.print();
 
     }
 }

@@ -1,5 +1,7 @@
 package ch.fwesterath.daojokes.model;
 
+import ch.fwesterath.daojokes.dao.DataBaseAccess;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -7,11 +9,8 @@ import java.util.ArrayList;
 public class JokeBook {
     ArrayList<Joke> jokes = new ArrayList<Joke>();
 
-    public JokeBook(ResultSet jokelist) throws SQLException {
-
-        while (jokelist.next()) {
-            jokes.add(new Joke(jokelist.getInt("id"), jokelist.getDate("date"), jokelist.getInt("rating"), jokelist.getString("text")));
-        }
+    public JokeBook(DataBaseAccess dao) throws SQLException, ClassNotFoundException {
+        this.jokes = dao.getAllJokes();
     }
 
     public String print() {
