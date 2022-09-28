@@ -34,5 +34,6 @@ public class DatabaseAccess_ma implements DatabaseAccess{
         statement.setString(2, joke.getText());
         statement.setDate(3, new java.sql.Date(joke.getDate().getTime()));
         statement.setInt(4, joke.getRating());
+        statement.executeUpdate();
     }
 }

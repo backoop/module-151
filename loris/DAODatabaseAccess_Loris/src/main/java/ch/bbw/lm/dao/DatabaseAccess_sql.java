@@ -33,7 +33,7 @@ public class DatabaseAccess_sql implements DatabaseAccess{
 
     @Override
     public void createJoke(Joke joke) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        /*Class.forName("com.mysql.cj.jdbc.Driver");
         String connectionUrl = "jdbc:mysql://localhost:3306/jokedb";
         Connection connection = DriverManager.getConnection(connectionUrl, "root", "");
         String sql = "INSERT INTO joke (id, text, date, rating) VALUES (?, ?, ?, ?)";
@@ -42,7 +42,8 @@ public class DatabaseAccess_sql implements DatabaseAccess{
         statement.setLong(1, joke.getId());
         statement.setString(2, joke.getText());
         statement.setDate(3, new java.sql.Date(joke.getDate().getTime()));
-        statement.setInt(4, joke.getRating());
+        statement.setInt(4, joke.getRating());*/
+
     }
 
 
