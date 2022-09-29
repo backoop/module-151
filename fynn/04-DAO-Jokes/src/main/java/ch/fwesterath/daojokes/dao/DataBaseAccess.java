@@ -6,4 +6,6 @@ import ch.fwesterath.daojokes.model.Joke;
 
 public interface DataBaseAccess {
     public abstract ArrayList<Joke> getAllJokes() throws ClassNotFoundException, SQLException;
+
+    public abstract void addJoke(Joke joke) throws ClassNotFoundException, SQLException;
 }

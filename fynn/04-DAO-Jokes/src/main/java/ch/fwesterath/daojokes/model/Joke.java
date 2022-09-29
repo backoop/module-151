@@ -49,15 +49,11 @@ public class Joke {
 
     @Override
     public String toString() {
-        return "Joke{" +
-                "id=" + id +
-                ", date=" + date +
-                ", rating=" + rating +
-                ", text='" + text + '\'' +
-                '}';
+        return "Joke:" + "ID=" + id + ", Date=" + date + ", Rating=" + rating + ",\n"
+            + "text='" + text + '\'';
     }
 
-    public void setupJoke(int id, String text, java.sql.Date date, int rating) {
+    public void setupJoke(int id, String text, Date date, int rating) {
         this.id = id;
         this.text = text;
         this.date = date;

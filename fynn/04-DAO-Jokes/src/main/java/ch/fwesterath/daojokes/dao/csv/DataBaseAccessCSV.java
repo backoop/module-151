@@ -23,4 +23,12 @@ public class DataBaseAccessCSV implements DataBaseAccess {
         }
         return jokes;
     }
+
+    @Override
+    public void addJoke(Joke joke) throws ClassNotFoundException, SQLException {
+        Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+        Connection connection = DriverManager.getConnection("jdbc:odbc:google");
+        Statement statement = connection.createStatement();
+        statement.executeUpdate("INSERT INTO joke (text, date, rating) values ('" + joke.getText() + "', '" + joke.getDate() + "', '" + joke.getRating() + "')");
+    }
 }

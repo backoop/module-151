@@ -24,4 +24,13 @@ public class DataBaseAccesSQL implements DataBaseAccess {
         }
         return jokes;
     }
+
+    @Override
+    public void addJoke(Joke joke) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");// Verbindung zur Datenbank herstellen// Setzen Sie den richtigen Port, auf dem ihre Datenbank läuft// zbsp 3306
+        String connectionUrl = "jdbc:mysql://localhost:3306/jokedb";//beachten Sie username und passwort
+        Connection connection = DriverManager.getConnection(connectionUrl, "root", "1234");// Sql Befehl aufbauen und ausführen
+        Statement stmt = connection.createStatement();
+        stmt.executeUpdate("INSERT INTO joke (text, date, rating) values ('" + joke.getText() + "', '" + joke.getDate() + "', '" + joke.getRating() + "')");
+    }
 }
